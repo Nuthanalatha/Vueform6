@@ -1,17 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <nav-bar />
+  <!-- <from-component @getFormDataFromLogin="getFormDataFromLogin" />
+  <user-data :userFormData="userFormData" /> -->
+  <vee-form />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// import FromComponent from "./components/FromComponent.vue";
+// import NavBar from "./components/NavBar.vue";
+// import UserData from "./components/UserData.vue";
+import VeeForm from "./components/VeeForm.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    // FromComponent,
+    //  NavBar,
+    // UserData,
+    VeeForm,
+  },
+  data() {
+    return {
+      userFormData: [],
+    };
+  },
+  methods: {
+    getFormDataFromLogin(formData) {
+      // console.log("formData in parent",formData);
+      this.userFormData.push(formData);
+      console.log("userFormData", this.userFormData);
+    },
+  },
+};
 </script>
 
 <style>
@@ -21,6 +40,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
